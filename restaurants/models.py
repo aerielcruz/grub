@@ -37,7 +37,7 @@ class Dish(Model):
 class Review(Model):
     user = ForeignKey(User, on_delete=CASCADE, default=None, null=True)
     RATING_CHOICES = ((1, 'one'), (2, 'two'), (3, 'three'), (4, 'four'), (5, 'five'))
-    rating = PositiveSmallIntegerField('Rating (stars)', blank=False, default=3, choices=RATING_CHOICES)
+    rating = PositiveSmallIntegerField('Rating (stars)', blank=False, default=5, choices=RATING_CHOICES)
     comment = CharField(max_length=191)
 
     created_at = DateField(auto_now_add=True, editable=False)
