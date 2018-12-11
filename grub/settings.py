@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     #Our apps
     'restaurants.apps.RestaurantsConfig',
+    'pages.apps.PagesConfig',
 ]
 
 MIDDLEWARE = [

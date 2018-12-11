@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+	<h1>{{ title }}</h1>
+
+	{% for key, value in info.items %}
+		<p>{{ key }} : {{ value }}</p>
+	{% endfor %}
+	
+
+	<p><a href="{% url 'resto:index' %}"><&lt;Go back</a></p>
+
+{% endblock %}

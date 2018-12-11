@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
-from .forms import RestaurantForm, DishForm, ReviewForm
-from .models import Restaurant, Dish, Review
+from .forms import CategoryForm, RestaurantForm, DishForm, ReviewForm
+from .models import Category, Restaurant, Dish, Review
 
 from django.contrib.auth.decorators import login_required
 
@@ -20,3 +20,18 @@ def index(request):
     }
 
     return render(request, "restaurants/index.html", context)
+
+# def create(request):
+
+# def read(request, id):
+#     obj = Restaurant.objects.get(pk=id)
+#     title = obj.restaurant
+
+#     context = {
+#         "title": title,
+#         "obj": obj
+#     }
+#     return render(request, "restaurant/read.html", context)
+
+
+
