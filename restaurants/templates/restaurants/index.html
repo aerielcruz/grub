@@ -5,7 +5,7 @@
 	<h2>List of Restaurants</h2>
 	<ul>
 		{% for item in restaurantlist %}
-            <li><a href="">{{ item.restaurant_name }}</a>
+            <li><a href="{% url 'resto:read' item.id %}">{{ item.name }}</a>
 			{% comment %} <li><a href="{% url 'resto:read' item.id %}">{{ item.restaurant_name }}</a> {% endcomment %}
 			{% comment %} or <a href="{% url 'flix:delete' 'genre' item.id %}">Delete</a>
 			or <a href="{% url 'flix:update' 'genre' item.id %}">Update</a> {% endcomment %}

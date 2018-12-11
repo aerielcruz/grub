@@ -18,7 +18,7 @@ class RestaurantForm(forms.ModelForm):
             "name",
             "address",
             "country",
-            "phone_number",
+            "phone",
             "category",
             "opening_hours"
         ]

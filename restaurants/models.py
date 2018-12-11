@@ -21,7 +21,7 @@ class Restaurant(Model):
     name = CharField(max_length=191)
     address = CharField(max_length=191)
     country = CharField(max_length=191)
-    phone_number = CharField(max_length=191)
+    phone = CharField(max_length=191)
     category = ForeignKey(Category, on_delete=CASCADE)
     opening_hours = CharField(max_length=191)
     
