@@ -20,11 +20,13 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
+    path('', include("basicauth.urls")),
     path('', views.home, name="home"),
     path('about/', views.about, name="about"),
 	path('contact/', views.contact, name="contact"),
 
     path('restaurants/', include("restaurants.urls")),
+    # path('pages/', include("pages.urls")),
 
     path('admin/', admin.site.urls),
     # url(r'^admin/', admin.site.urls),
