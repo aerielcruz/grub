@@ -6,14 +6,14 @@ from django.contrib.auth.models import User
 
 class Category(Model):
     user = ForeignKey(User, on_delete=CASCADE)
-    name = CharField(max_length=191)
+    category = CharField(max_length=191)
     is_active = BooleanField(default=True)
 
     class Meta:
         verbose_name_plural = "Categories"
 
     def __str__(self):
-        return self.name
+        return self.category
 
 
 class Restaurant(Model):
@@ -35,7 +35,7 @@ class Restaurant(Model):
 
 class Dish(Model):
     user = ForeignKey(User, on_delete=CASCADE)
-    name = CharField(max_length=191)
+    dish = CharField(max_length=191)
     description = CharField(max_length=191)
     price = DecimalField('Php amount', max_digits=7, decimal_places=2, blank=True, null=True)
     restaurant = ForeignKey(Restaurant, on_delete=CASCADE)
@@ -49,7 +49,7 @@ class Dish(Model):
         verbose_name_plural = "Dishes"
 
     def __str__(self):
-        return self.name
+        return self.dish
 
 
 class Review(Model):

@@ -8,5 +8,5 @@ class RegisterForm(forms.ModelForm):
 		model = User
 		fields = ["username", "email", "password"]
 		widgets = {
-			"password": forms.PasswordInput() #Cant see pass when typed
+			"password": forms.PasswordInput() # Cant see pass when typed
 		}

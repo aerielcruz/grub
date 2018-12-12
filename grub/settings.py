@@ -126,3 +126,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# Auth
+LOGIN_URL = "/login" #user trying to access page without access
+LOGIN_REDIRECT_URL = "/" # redirects home after successful login
+LOGOUT_REDIRECT_URL = "/"

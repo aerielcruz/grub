@@ -6,7 +6,7 @@ class CategoryForm(forms.ModelForm):
         model = Category
         # exclude = ()
         fields = [
-            "name",
+            "category",
             "is_active"
         ]
 
@@ -14,7 +14,6 @@ class RestaurantForm(forms.ModelForm):
     class Meta:
         model = Restaurant
         fields = [
-            "user",
             "name",
             "address",
             "country",
@@ -27,7 +26,7 @@ class DishForm(forms.ModelForm):
     class Meta:
         model = Dish
         fields = [
-            "name",
+            "dish",
             "description",
             "price",
             "restaurant",
@@ -38,7 +37,6 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = [
-            "user",
             "rating",
             "comment",
             "restaurant"
