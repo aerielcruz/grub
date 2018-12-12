@@ -11,14 +11,14 @@ def index(request):
     # Get data from the database
     # Output to html file
 
-    categories = Category.objects.all()
+    # categories = Category.objects.all()
     restaurants = Restaurant.objects.all()
-    dishes = Dish.objects.all()
+    # dishes = Dish.objects.all()
     context = {
         "title": "Restaurant List",
-        "categorylist": categories,
+        # "categorylist": categories,
         "restaurantlist": restaurants,
-        "dishlist": dishes
+        # "dishlist": dishes
     }
 
     return render(request, "restaurants/index.html", context)
@@ -39,7 +39,6 @@ def create(request):
                 country = form.cleaned_data["country"],
                 phone = form.cleaned_data["phone"],
                 category = form.cleaned_data["category"],
-                # category = id,
                 opening_hours = form.cleaned_data["opening_hours"]
                 )
             return redirect("resto:success")
@@ -72,7 +71,61 @@ def read(request, id):
 	}
     return render(request, "restaurants/read.html", context)
 
+@login_required
+def update(request, id):
+    obj = Restaurant.objects.get(pk=id)
+    form = RestaurantForm(instance=obj)
 
+    if (request.method == "POST"):
+        form = RestaurantForm(request.POST)
+
+        if form.is_valid():
+            # user = request.user,
+            # name = form.cleaned_data["name"],
+            # address = form.cleaned_data["address"],
+            # country = form.cleaned_data["country"],
+            # phone = form.cleaned_data["phone"],
+            # category = form.cleaned_data["category"],
+            # opening_hours = form.cleaned_data["opening_hours"]
+
+
+            # # obj = Restaurant()
+            # # obj.user = user
+            # # obj.user = request.user
+            # obj.name = name
+            # obj.address = address
+            # obj.country = country
+            # obj.phone = phone
+            # obj.category = category
+            # obj.opening_hours = opening_hours
+            # obj.save()
+
+            Restaurant.objects.filter(pk=id).update(
+                # user = request.user,
+                name = form.cleaned_data["name"],
+                address = form.cleaned_data["address"],
+                country = form.cleaned_data["country"],
+                phone = form.cleaned_data["phone"],
+                category = form.cleaned_data["category"],
+                opening_hours = form.cleaned_data["opening_hours"]
+                ) 
+
+            # Restaurant.objects.create(
+            #     user = request.user,
+            #     name = form.cleaned_data["name"],
+            #     address = form.cleaned_data["address"],
+            #     country = form.cleaned_data["country"],
+            #     phone = form.cleaned_data["phone"],
+            #     category = form.cleaned_data["category"],
+            #     opening_hours = form.cleaned_data["opening_hours"]
+            #     )
+
+            return redirect("resto:index")
+                
+    context = {
+        "form": form,
+    }
+    return render(request, "restaurants/create.html", context)
 
 def success(request):
 	return render(request, "success.html")

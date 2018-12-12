@@ -6,7 +6,7 @@ urlpatterns = [
     path("", views.index, name="index"),
 	path('create/', views.create, name="create"),
 	path('read/<int:id>', views.read, name="read"), #<int:id> placeholder, id is variable
-	# path('update/<str:category>/<int:id>', views.update, name="update"),
+	path('update/<int:id>', views.update, name="update"),
 	# path('delete/<str:category>/<int:id>', views.delete, name="delete"),
 
 	path('success/', views.success, name="success"),
