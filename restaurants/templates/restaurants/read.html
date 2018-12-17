@@ -20,8 +20,22 @@
         {% empty %}<li>Sorry, no dishes registered yet.</li>
 		{% endfor %}
 	</ul>
-
 	<button><a href="{% url 'resto:create' 'dish' %}">Add Dish</a></button>	
+
+    <h2>Reviews</h2>
+	<ul>
+		{% for item in reviewlist %}
+            <li>
+                <a href="{% url 'resto:read' 'review' item.id %}">{{ item.user }}</a>
+                {% comment %} <button><a href="{% url 'resto:update' 'dish' item.id %}">Update</a></button>
+                <button><a href="{% url 'resto:delete' 'dish' item.id %}">Delete</a></button> {% endcomment %}
+                <p>{{ item.rating }}</p>
+                <p>{{ item.comment }}</p>
+            </li>
+        {% empty %}<li>This restaurant has not been reviewed yet.</li>
+		{% endfor %}
+	</ul>
+    <button><a href="{% url 'resto:create' 'review' %}">Add Review</a></button>
 
 	<p><a href="{% url 'resto:index' %}"><&lt;Go back</a></p>
 

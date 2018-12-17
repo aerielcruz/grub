@@ -39,7 +39,7 @@ def create(request, category):
                     category = form.cleaned_data["category"]
                     )
                 return redirect("resto:success")
-    else:
+    elif (category == "restaurant"):
         form = RestaurantForm()
         if(request.method == "POST"):
             form = RestaurantForm(request.POST)
@@ -53,6 +53,19 @@ def create(request, category):
                     phone = form.cleaned_data["phone"],
                     category = form.cleaned_data["category"],
                     opening_hours = form.cleaned_data["opening_hours"]
+                    )
+                return redirect("resto:success")
+    elif (category == "review"):
+        form = ReviewForm()
+        if(request.method == "POST"):
+            form = ReviewForm(request.POST)
+
+            if form.is_valid():
+                Review.objects.create(
+                    user = request.user,
+                    rating = form.cleaned_data["rating"],
+                    comment = form.cleaned_data["comment"],
+                    restaurant = form.cleaned_data["restaurant"]
                     )
                 return redirect("resto:success")
 
@@ -92,11 +105,13 @@ def read(request, category, id):
         }    
 
     dishes = Dish.objects.filter(restaurant=Restaurant.objects.get(pk=id))
+    reviews = Review.objects.filter(restaurant=Restaurant.objects.get(pk=id))
     context = {
 		"title": title,
 		"obj": obj,
 		"info": info,
-        "dishlist": dishes
+        "dishlist": dishes,
+        "reviewlist": reviews
 	}
     return render(request, "restaurants/read.html", context)
 
