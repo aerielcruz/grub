@@ -8,7 +8,21 @@
 		<p>{{ key }} : {{ value }}</p>
 	{% endfor %}
 	
-			
+
+    <h2>List of Dishes</h2>
+	<ul>
+		{% for item in dishlist %}
+            <li>
+                <a href="{% url 'resto:read' 'dish' item.id %}">{{ item.dish }}</a>
+                {% comment %} <button><a href="{% url 'resto:update' 'dish' item.id %}">Update</a></button>
+                <button><a href="{% url 'resto:delete' 'dish' item.id %}">Delete</a></button> {% endcomment %}
+            </li>
+        {% empty %}<li>Sorry, no dishes registered yet.</li>
+		{% endfor %}
+	</ul>
+
+	<button><a href="{% url 'resto:create' 'dish' %}">Add Dish</a></button>	
+
 	<p><a href="{% url 'resto:index' %}"><&lt;Go back</a></p>
 
 {% endblock %}

@@ -5,26 +5,14 @@
 	<h2>List of Restaurants</h2>
 	<ul>
 		{% for item in restaurantlist %}
-            <li><a href="{% url 'resto:read' item.id %}">{{ item.name }}</a>
-            <button><a href="{% url 'resto:update' item.id %}">Update</a></button>
-            {% comment %} <li><a href="{% url 'resto:read' item.id %}">{{ item.restaurant_name }}</a> {% endcomment %}
-			{% comment %} or <a href="{% url 'flix:delete' 'genre' item.id %}">Delete</a>
-			or <a href="{% url 'flix:update' 'genre' item.id %}">Update</a> {% endcomment %}
-			</li>
+            <li>
+                <a href="{% url 'resto:read' 'restaurant' item.id %}">{{ item.name }}</a>
+                {% comment %} <button><a href="{% url 'resto:update' 'restaurant' item.id %}">Update</a></button> {% endcomment %}
+                {% comment %} <button><a href="{% url 'resto:delete' 'restaurant' item.id %}">Delete</a></button> {% endcomment %}
+            </li>
         {% empty %}<li>Sorry, no restaurants registered yet.</li>
 		{% endfor %}
 	</ul>
-	<button><a href="{% url 'resto:create' %}">Add Restaurant</a></button>
-
-	{% comment %} <h2>List of Shows</h2>
-	<ul>
-		{% for item in showslist %}
-			<li><a href="{% url 'flix:read' 'show' item.id %}">{{ item.name }}: {{ item.release}}</a>
-			or <a href="{% url 'flix:delete' 'show' item.id %}">Delete</a>
-			or <a href="{% url 'flix:update' 'show' item.id %}">Update</a>
-			</li>
-		{% endfor %}
-	</ul>
-	<button><a href="{% url 'flix:create' 'show' %}">Add</a></button> {% endcomment %}
+	<button><a href="{% url 'resto:create' 'restaurant' %}">Add Restaurant</a></button>
 
 {% endblock %}
