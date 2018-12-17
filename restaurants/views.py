@@ -24,7 +24,22 @@ def index(request):
 
 @login_required
 def create(request, category):
-    if (category == "restaurant"):
+    if (category == "dish"):
+        form = DishForm()
+        if(request.method == "POST"):
+            form = DishForm(request.POST)
+
+            if form.is_valid():
+                Dish.objects.create(
+                    user = request.user,
+                    dish = form.cleaned_data["dish"],
+                    description = form.cleaned_data["description"],
+                    price = form.cleaned_data["price"],
+                    restaurant = form.cleaned_data["restaurant"],
+                    category = form.cleaned_data["category"]
+                    )
+                return redirect("resto:success")
+    else:
         form = RestaurantForm()
         if(request.method == "POST"):
             form = RestaurantForm(request.POST)
@@ -40,21 +55,6 @@ def create(request, category):
                     opening_hours = form.cleaned_data["opening_hours"]
                     )
                 return redirect("resto:success")
-    else:
-        form = DishForm()
-        if(request.method == "POST"):
-            form = DishForm(request.POST)
-
-            if form.is_valid():
-                Dish.objects.create(
-                    user = request.user,
-                    dish = form.cleaned_data["dish"],
-                    description = form.cleaned_data["description"],
-                    price = form.cleaned_data["price"],
-                    restaurant = form.cleaned_data["restaurant"],
-                    category = form.cleaned_data["category"]
-                    )
-                return redirect("resto:success")
 
     context = {
 		"form": form,
@@ -63,7 +63,20 @@ def create(request, category):
 
 
 def read(request, category, id):
-    if (category == "restaurant"):
+    if (category == "dish"):
+        obj = Dish.objects.get(pk=id)
+        title = obj.dish
+        info = {
+            "User": obj.user,
+            "Dish": obj.dish,
+            "Description": obj.description,
+            "Price": obj.price,
+            "Restaurant": obj.restaurant,
+            "Category": obj.category,
+            "Created at": obj.created_at,
+            "Updated at": obj.updated_at,
+        }
+    else:
         obj = Restaurant.objects.get(pk=id)
         title = obj.name
         info = {
@@ -74,19 +87,6 @@ def read(request, category, id):
             "Phone": obj.phone,
             "Category": obj.category,
             "Opening hours": obj.opening_hours,
-            "Created at": obj.created_at,
-            "Updated at": obj.updated_at,
-        }
-    else:
-        obj = Dish.objects.get(pk=id)
-        title = obj.dish
-        info = {
-            "User": obj.user,
-            "Dish": obj.dish,
-            "Description": obj.description,
-            "Price": obj.price,
-            "Restaurant": obj.restaurant,
-            "Category": obj.category,
             "Created at": obj.created_at,
             "Updated at": obj.updated_at,
         }    
@@ -102,7 +102,23 @@ def read(request, category, id):
 
 @login_required
 def update(request, category, id):
-    if (category == "restaurant"):
+    if (category == "dish"):
+        obj = Dish.objects.get(pk=id)
+        form = DishForm(instance=obj)
+
+        if (request.method == "POST"):
+            form = DishForm(request.POST)
+
+            if form.is_valid():
+                Dish.objects.filter(pk=id).update(
+                    dish = form.cleaned_data["dish"],
+                    description = form.cleaned_data["description"],
+                    price = form.cleaned_data["price"],
+                    restaurant = form.cleaned_data["restaurant"],
+                    category = form.cleaned_data["category"]
+                    ) 
+                return redirect("resto:index")
+    else:
         obj = Restaurant.objects.get(pk=id)
         form = RestaurantForm(instance=obj)
 
@@ -118,24 +134,6 @@ def update(request, category, id):
                     category = form.cleaned_data["category"],
                     opening_hours = form.cleaned_data["opening_hours"]
                     ) 
-
-                return redirect("resto:index")
-    else:
-        obj = Dish.objects.get(pk=id)
-        form = DishForm(instance=obj)
-
-        if (request.method == "POST"):
-            form = DishForm(request.POST)
-
-            if form.is_valid():
-                Dish.objects.filter(pk=id).update(
-                    dish = form.cleaned_data["dish"],
-                    description = form.cleaned_data["description"],
-                    price = form.cleaned_data["price"],
-                    restaurant = form.cleaned_data["restaurant"],
-                    category = form.cleaned_data["category"]
-                    ) 
-
                 return redirect("resto:index")
                 
     context = {
@@ -146,11 +144,11 @@ def update(request, category, id):
 
 @login_required
 def delete(request, category, id):
-    if (category == "restaurant"):
-        Restaurant.objects.get(pk=id).delete()
+    if (category == "dish"):
+        Dish.objects.get(pk=id).delete()
         return redirect("resto:deleted")
     else:
-        Dish.objects.get(pk=id).delete()
+        Restaurant.objects.get(pk=id).delete()
         return redirect("resto:deleted")
 
 def deleted(request):
