@@ -14,8 +14,8 @@
 		{% for item in dishlist %}
             <li>
                 <a href="{% url 'resto:read' 'dish' item.id %}">{{ item.dish }}</a>
-                {% comment %} <button><a href="{% url 'resto:update' 'dish' item.id %}">Update</a></button>
-                <button><a href="{% url 'resto:delete' 'dish' item.id %}">Delete</a></button> {% endcomment %}
+                <button><a href="{% url 'resto:update' 'dish' item.id %}">Update</a></button>
+                <button><a href="{% url 'resto:delete' 'dish' item.id %}">Delete</a></button>
             </li>
         {% empty %}<li>Sorry, no dishes registered yet.</li>
 		{% endfor %}

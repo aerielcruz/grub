@@ -91,7 +91,7 @@ def read(request, category, id):
             "Updated at": obj.updated_at,
         }    
 
-    dishes = Dish.objects.all().filter(restaurant=Restaurant.objects.get(pk=id))
+    dishes = Dish.objects.filter(restaurant=Restaurant.objects.get(pk=id))
     context = {
 		"title": title,
 		"obj": obj,
@@ -145,9 +145,13 @@ def update(request, category, id):
 
 
 @login_required
-def delete(request, id):
-    Restaurant.objects.get(pk=id).delete()
-    return redirect("resto:deleted")
+def delete(request, category, id):
+    if (category == "restaurant"):
+        Restaurant.objects.get(pk=id).delete()
+        return redirect("resto:deleted")
+    else:
+        Dish.objects.get(pk=id).delete()
+        return redirect("resto:deleted")
 
 def deleted(request):
 	return render(request, "restaurants/deleted.html")
