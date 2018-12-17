@@ -101,24 +101,42 @@ def read(request, category, id):
     return render(request, "restaurants/read.html", context)
 
 @login_required
-def update(request, id):
-    obj = Restaurant.objects.get(pk=id)
-    form = RestaurantForm(instance=obj)
+def update(request, category, id):
+    if (category == "restaurant"):
+        obj = Restaurant.objects.get(pk=id)
+        form = RestaurantForm(instance=obj)
 
-    if (request.method == "POST"):
-        form = RestaurantForm(request.POST)
+        if (request.method == "POST"):
+            form = RestaurantForm(request.POST)
 
-        if form.is_valid():
-            Restaurant.objects.filter(pk=id).update(
-                name = form.cleaned_data["name"],
-                address = form.cleaned_data["address"],
-                country = form.cleaned_data["country"],
-                phone = form.cleaned_data["phone"],
-                category = form.cleaned_data["category"],
-                opening_hours = form.cleaned_data["opening_hours"]
-                ) 
+            if form.is_valid():
+                Restaurant.objects.filter(pk=id).update(
+                    name = form.cleaned_data["name"],
+                    address = form.cleaned_data["address"],
+                    country = form.cleaned_data["country"],
+                    phone = form.cleaned_data["phone"],
+                    category = form.cleaned_data["category"],
+                    opening_hours = form.cleaned_data["opening_hours"]
+                    ) 
 
-            return redirect("resto:index")
+                return redirect("resto:index")
+    else:
+        obj = Dish.objects.get(pk=id)
+        form = DishForm(instance=obj)
+
+        if (request.method == "POST"):
+            form = DishForm(request.POST)
+
+            if form.is_valid():
+                Dish.objects.filter(pk=id).update(
+                    dish = form.cleaned_data["dish"],
+                    description = form.cleaned_data["description"],
+                    price = form.cleaned_data["price"],
+                    restaurant = form.cleaned_data["restaurant"],
+                    category = form.cleaned_data["category"]
+                    ) 
+
+                return redirect("resto:index")
                 
     context = {
         "form": form,
