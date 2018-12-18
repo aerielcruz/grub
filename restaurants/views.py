@@ -104,8 +104,9 @@ def read(request, category, id):
             "Updated at": obj.updated_at,
         }    
 
-    dishes = Dish.objects.filter(restaurant=Restaurant.objects.get(pk=id))
-    reviews = Review.objects.filter(restaurant=Restaurant.objects.get(pk=id))
+    resto = Restaurant.objects.get(pk=id).only("id")
+    dishes = Dish.objects.filter(restaurant=resto)
+    reviews = Review.objects.filter(restaurant=resto)
     context = {
 		"title": title,
 		"obj": obj,
