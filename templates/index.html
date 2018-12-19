@@ -1,20 +1,44 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
-    {% if user.is_authenticated %}
-		<h1>Welcome {{ user.username }}!</h1>
-		<p><a href="{% url 'bauth:logout' %}">Log out</a></p>
-	{% else %}
-		<h1>Hello World!</h1>
-	{% endif %}
-	
-	<h1>Home Page</h1>
+	{% comment %} <div class="container"> {% endcomment %}
+		{% comment %} <img class="header-img img-fluid" src="{% static 'images/wine-toast.jpg' %}"> {% endcomment %}
+	{% comment %} </div> {% endcomment %}
 
-    <ul>
-		<li>LINKS</li>
-		<li><a href="{% url 'contact' %}">Contact</a></li>
-		<li><a href="{% url 'about' %}">About</a></li>
-	</ul>
+	{% comment %} <div class="landing-img" style="background-image: url({% static 'images/wine-toast.jpg' %})"></div> {% endcomment %}
+
+	<!-- Page Header -->
+    <header class="masthead" style="background-image: url({% static 'images/wine-toast.jpg' %})">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Grub</h1>
+              <span class="subheading">Find a restaurant to grub!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+	<div class="container">
+		{% if user.is_authenticated %}
+			<h1>Welcome {{ user.username }}!</h1>
+			<p><a href="{% url 'bauth:logout' %}">Log out</a></p>
+		{% else %}
+			<h1>Hello World!</h1>
+		{% endif %}
+		
+		<h1>Home Page</h1>
+
+		<ul>
+			<li>LINKS</li>
+			<li><a href="{% url 'contact' %}">Contact</a></li>
+			<li><a href="{% url 'about' %}">About</a></li>
+		</ul>
+	</div>
 
 {% endblock %}
