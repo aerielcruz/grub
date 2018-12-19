@@ -2,17 +2,19 @@
 
 {% block content %}
 
-	<h2>List of Restaurants</h2>
-	<ul>
-		{% for item in restaurantlist %}
-            <li>
-                <a href="{% url 'resto:read' item.name item.id %}">{{ item.name }}</a>
-                <button><a href="{% url 'resto:update' item.name item.id %}">Update</a></button>
-                <button><a href="{% url 'resto:delete' item.name item.id %}">Delete</a></button>
-            </li>
-        {% empty %}<li>Sorry, no restaurants registered yet.</li>
-		{% endfor %}
-	</ul>
-	<button><a href="{% url 'resto:create' 'restaurant' %}">Add Restaurant</a></button>
+    <div class="container">
+        <h2>List of Restaurants</h2>
+        <ul>
+            {% for item in restaurantlist %}
+                <li>
+                    <a href="{% url 'resto:read' item.name item.id %}">{{ item.name }}</a>
+                    <button><a href="{% url 'resto:update' item.name item.id %}">Update</a></button>
+                    <button><a href="{% url 'resto:delete' item.name item.id %}">Delete</a></button>
+                </li>
+            {% empty %}<li>Sorry, no restaurants registered yet.</li>
+            {% endfor %}
+        </ul>
+        <button><a href="{% url 'resto:create' 'restaurant' %}">Add Restaurant</a></button>
+    </div>
 
 {% endblock %}
