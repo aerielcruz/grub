@@ -46,5 +46,14 @@ div.meal-container {margin: 10px 0;}
 a img.meal-icon {width: 55px; height: auto; display: block; margin: 0 auto;}
 a p.meal-text {text-align: center; color: #7C7C7D; margin-top: -8px;}
 
+/* profile.html */
+.account-img {display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  
+    object-fit: cover;}
+
+/* general */
 .transition {transition: 0.2s;}
 .opaque-hover:hover {opacity: 0.6;}

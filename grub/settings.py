@@ -127,6 +127,9 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Auth
 LOGIN_URL = "/login" #user trying to access page without access
 LOGIN_REDIRECT_URL = "/" # redirects home after successful login

@@ -28,6 +28,9 @@ def registration(request):
 	}
 	return render(request, "registration/register.html", context)
 
+def profile(request):
+	return render(request, 'basicauth/profile.html')
+
 def success(request):
 	context = {
 		"title": "User Created"
