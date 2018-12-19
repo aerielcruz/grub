@@ -17,13 +17,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav mx-auto">
+                {% comment %} <div class="navbar-nav mx-auto">
                     <a class="nav-item nav-link active text-uppercase" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link text-uppercase" href="{% url 'resto:index' %}">Find</a>
                     <a class="nav-item nav-link text-uppercase" href="{% url 'about' %}">About</a>
                     <a class="nav-item nav-link text-uppercase" href="{% url 'contact' %}">Contact</a>
-                </div>
-                <div class="navbar-nav pull-right">
+                </div> {% endcomment %}
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-item nav-link active text-uppercase" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link text-uppercase" href="{% url 'resto:index' %}">Find</a>
+                    <a class="nav-item nav-link text-uppercase" href="{% url 'about' %}">About</a>
+                    <a class="nav-item nav-link text-uppercase" href="{% url 'contact' %}">Contact</a>
                     {% if user.is_authenticated %}
                         <p class="nav-item nav-link text-uppercase">Welcome {{ user.username }}!</p>
                         <p class="nav-item nav-link text-uppercase"><a href="{% url 'bauth:logout' %}">Log out</a></p>
