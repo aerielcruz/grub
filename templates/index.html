@@ -25,14 +25,73 @@
     </header>
 
 	<div class="container">
-		{% if user.is_authenticated %}
-			<h1>Welcome {{ user.username }}!</h1>
-			<p><a href="{% url 'bauth:logout' %}">Log out</a></p>
-		{% else %}
-			<h1>Hello World!</h1>
-		{% endif %}
+		<h3>Quick Searches</h3>
+		<h5>Discover restaurants by type of meal</h5>
+		<div class="bg-box">
+			<div class="row">
+				<div class="col-6 col-sm-2 opaque-hover meal-container">
+					<a href="#">
+						<img class="meal-icon transition" src="{% static 'images/icons/breakfast.png' %}">
+						<p class="meal-text transition">Breakfast</p>
+					</a>
+				</div>
+				<div class="col-6 col-sm-2 opaque-hover meal-container">
+					<a href="#">
+						<img class="meal-icon transition" src="{% static 'images/icons/lunch.png' %}">
+						<p class="meal-text transition">Lunch</p>
+					</a>
+				</div>
+				<div class="col-6 col-sm-2 opaque-hover meal-container">
+					<a href="#">
+						<img class="meal-icon transition" src="{% static 'images/icons/dinner.png' %}">
+						<p class="meal-text transition">Dinner</p>
+					</a>
+				</div>
+				<div class="col-6 col-sm-2 opaque-hover meal-container">
+					<a href="#">
+						<img class="meal-icon transition" src="{% static 'images/icons/drinks.png' %}">
+						<p class="meal-text transition">Drinks</p>
+					</a>
+				</div>
+				<div class="col-6 col-sm-2 opaque-hover meal-container">
+					<a href="#">
+						<img class="meal-icon transition" src="{% static 'images/icons/cafes.png' %}">
+						<p class="meal-text transition">Cafes</p>
+					</a>
+				</div>
+				<div class="col-6 col-sm-2 opaque-hover meal-container">
+					<a href="#">
+						<img class="meal-icon transition" src="{% static 'images/icons/desserts.png' %}">
+						<p class="meal-text transition">Desserts</p>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<h3>Newest Restaurants</h3>
+		<h5>Restaurants that were recently added</h5>
+		<div class="container">
+			<div class="row">
+				<div class="bg-box col-md"></div>
+				<div class="bg-box col-md"></div>
+				<div class="bg-box col-md"></div>
+			</div>
+			<div class="row">
+				<div class="bg-box col-md"></div>
+				<div class="bg-box col-md"></div>
+				<div class="bg-box col-md"></div>
+			</div>
+		</div>
 
 		<h3>Our Satisfied Grubbers!</h3>
+		<h5>The top reviewers and bloggers who use Grub</h5>
+		<div class="container">
+			<div class="row">
+				<div class="bg-box col-md"></div>
+				<div class="bg-box col-md"></div>
+				<div class="bg-box col-md"></div>
+			</div>
+		</div>
 	</div>
 
 	
