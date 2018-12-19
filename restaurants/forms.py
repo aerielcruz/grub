@@ -19,7 +19,8 @@ class RestaurantForm(forms.ModelForm):
             "country",
             "phone",
             "category",
-            "opening_hours"
+            "opening_hours",
+            "banner_image"
         ]
 
 class DishForm(forms.ModelForm):

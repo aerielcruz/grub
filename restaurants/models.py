@@ -1,6 +1,6 @@
 from django.db.models import Model, ForeignKey, CASCADE, DateTimeField,  \
 DecimalField, PositiveIntegerField, CharField, BooleanField,  \
-PositiveSmallIntegerField
+PositiveSmallIntegerField, ImageField
 
 from django.contrib.auth.models import User
 
@@ -24,6 +24,7 @@ class Restaurant(Model):
     phone = CharField(max_length=191)
     category = ForeignKey(Category, on_delete=CASCADE)
     opening_hours = CharField(max_length=191)
+    banner_image = ImageField(default='banner.jpg', upload_to='banner_image/%Y/%m/%d/', blank=True)
     
     created_at = DateTimeField(auto_now_add=True, editable=False)
     deleted_at = DateTimeField(null=True, blank=True, editable=False)

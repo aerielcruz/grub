@@ -3,12 +3,26 @@
 {% block content %}
 
     <div class="container">
-        <h1>{{ title }}</h1>
-
-        {% for key, value in info.items %}
-            <p>{{ key }} : {{ value }}</p>
-        {% endfor %}
+        <div class="banner-container">
+            <img class="banner-img" src="/media/{{ obj.banner_image }}" alt="Card image cap">
+            <h1>{{ title }}</h1>
+            <p class="">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+        <p>{{ obj.user }}</p>
+        <p>{{ obj.name }}</p>
+        <p>{{ obj.address }}</p>
+        <p>{{ obj.country }}</p>
+        <p>{{ obj.phone }}</p>
+        <p>{{ obj.category }}</p>
+        <p>{{ obj.opening_hours }}</p>
         
+
+        {% comment %} <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="/media/{{ obj.banner_image }}" alt="Card image cap">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div> {% endcomment %}
 
         <h2>List of Dishes</h2>
         <ul>

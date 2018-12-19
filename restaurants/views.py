@@ -5,7 +5,7 @@ from .models import Category, Restaurant, Dish, Review
 
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+
 
 def index(request):
     # Get data from the database
@@ -42,7 +42,7 @@ def create(request, category):
     elif (category == "restaurant"):
         form = RestaurantForm()
         if(request.method == "POST"):
-            form = RestaurantForm(request.POST)
+            form = RestaurantForm(request.POST, request.FILES)
 
             if form.is_valid():
                 Restaurant.objects.create(
@@ -52,7 +52,8 @@ def create(request, category):
                     country = form.cleaned_data["country"],
                     phone = form.cleaned_data["phone"],
                     category = form.cleaned_data["category"],
-                    opening_hours = form.cleaned_data["opening_hours"]
+                    opening_hours = form.cleaned_data["opening_hours"],
+                    banner_image = form.cleaned_data["banner_image"]
                     )
                 return redirect("resto:success")
     elif (category == "review"):
@@ -100,6 +101,7 @@ def read(request, category, id):
             "Phone": obj.phone,
             "Category": obj.category,
             "Opening hours": obj.opening_hours,
+            "Banner image": obj.banner_image,
             "Created at": obj.created_at,
             "Updated at": obj.updated_at,
         }    

@@ -47,12 +47,11 @@ a img.meal-icon {width: 55px; height: auto; display: block; margin: 0 auto;}
 a p.meal-text {text-align: center; color: #7C7C7D; margin-top: -8px;}
 
 /* profile.html */
-.account-img {display: inline-block;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-  
-    object-fit: cover;}
+.account-img {display: inline-block; width: 150px; height: 150px; border-radius: 50%; object-fit: cover;}
+
+/* read.html */
+.banner-container {background-color: #FFF; border: 1px solid #E5E5E5; border-radius: 5px;}
+.banner-img {max-height: 40%; max-width: 100%; margin: 0 auto; border-top-left-radius: 5px; border-top-right-radius: 5px;}
 
 /* general */
 .transition {transition: 0.2s;}
