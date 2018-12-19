@@ -19,6 +19,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav mx-auto">
                     <a class="nav-item nav-link active text-uppercase" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link text-uppercase" href="{% url 'resto:index' %}">Find</a>
                     <a class="nav-item nav-link text-uppercase" href="{% url 'about' %}">About</a>
                     <a class="nav-item nav-link text-uppercase" href="{% url 'contact' %}">Contact</a>
                 </div>
@@ -28,7 +29,7 @@
                         <p class="nav-item nav-link text-uppercase"><a href="{% url 'bauth:logout' %}">Log out</a></p>
                     {% else %}
                         <a class="nav-item nav-link text-uppercase" href="{% url 'bauth:login' %}">Login<span class="sr-only">(current)</span></a>
-                        <a class="main-btn primary-btn text-uppercase" href="{% url 'bauth:register' %}" role="button">Create an account</a>
+                        <a class="main-btn primary-btn text-uppercase transition" href="{% url 'bauth:register' %}" role="button">Create an account</a>
                     {% endif %}
                 </div>
             </div>
