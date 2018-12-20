@@ -109,6 +109,9 @@ def read(request, category, id):
     resto = Restaurant.objects.get(pk=id)
     dishes = Dish.objects.filter(restaurant=resto)
     reviews = Review.objects.filter(restaurant=resto)
+
+    # categories = dishes.objects.filter(category=category)
+
     context = {
 		"title": title,
 		"obj": obj,
