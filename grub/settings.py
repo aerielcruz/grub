@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'restaurants.apps.RestaurantsConfig',
     'pages.apps.PagesConfig',
     'basicauth.apps.BasicauthConfig',
+
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -129,6 +131,9 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Crispy forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Auth
 LOGIN_URL = "/login" #user trying to access page without access
