@@ -144,8 +144,9 @@ def update(request, category, id):
                     restaurant = form.cleaned_data["restaurant"],
                     category = form.cleaned_data["category"]
                     ) 
+                messages.success(request, f'Dish has been updated!')
                 return redirect("resto:index")
-    else:
+    elif (category == "restaurant"):
         obj = Restaurant.objects.get(pk=id)
         form = RestaurantForm(instance=obj)
 
@@ -155,12 +156,15 @@ def update(request, category, id):
             if form.is_valid():
                 Restaurant.objects.filter(pk=id).update(
                     name = form.cleaned_data["name"],
+                    description = form.cleaned_data["description"],
                     address = form.cleaned_data["address"],
                     country = form.cleaned_data["country"],
                     phone = form.cleaned_data["phone"],
                     category = form.cleaned_data["category"],
-                    opening_hours = form.cleaned_data["opening_hours"]
+                    opening_hours = form.cleaned_data["opening_hours"],
+                    banner_image = form.cleaned_data["banner_image"]
                     ) 
+                messages.success(request, f'Restaurant has been updated!')
                 return redirect("resto:index")
                 
     context = {
@@ -173,10 +177,12 @@ def update(request, category, id):
 def delete(request, category, id):
     if (category == "dish"):
         Dish.objects.get(pk=id).delete()
-        return redirect("resto:deleted")
+        messages.success(request, f'Dish has been deleted!')
+        return redirect("resto:index")
     else:
         Restaurant.objects.get(pk=id).delete()
-        return redirect("resto:deleted")
+        messages.success(request, f'Restaurant has been deleted!')
+        return redirect("resto:index")
 
 def deleted(request):
 	return render(request, "restaurants/deleted.html")

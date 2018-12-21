@@ -8,7 +8,12 @@
                 <div class="banner-container">
                     <img class="banner-img" src="/media/{{ obj.banner_image }}" alt="Card image cap">
                     <div style="padding: 20px;">
-                        <h1>{{ title }}</h1>
+                        <div class="clearfix">
+                            <h1 style="float: left;">{{ title }}</h1>
+                            <a href="{% url 'resto:delete' 'restaurant' obj.id %}"><button style="color: #FFF; float: right;" class="btn bg-danger"><span class="oi oi-trash"></span></button></a>
+                            <a style="float: right;" class="review-btn secondary-btn text-uppercase transition" href="{% url 'resto:update' 'restaurant' obj.id %}" role="button">Update</a>
+                        </div>
+
                         <h5 style="margin: 0 0 10px 0;">{{ obj.description }}</h5>
                         <p><span class="oi oi-location"></span> {{ obj.address }}</p>
                     </div>
