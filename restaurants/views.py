@@ -17,6 +17,7 @@ def index(request):
         "title": "Restaurant List",
         # "categorylist": categories,
         "restaurantlist": restaurants,
+        "browse_page": "active"
     }
 
     return render(request, "restaurants/index.html", context)

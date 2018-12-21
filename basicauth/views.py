@@ -50,7 +50,8 @@ def profile(request):
 	
 	context = {
 		"u_form": u_form,
-		"p_form": p_form
+		"p_form": p_form,
+		"profile_page": "active"
 	}
 
 	return render(request, 'basicauth/profile.html', context)

@@ -18,12 +18,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
-                    <a class="nav-item nav-link active text-uppercase" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link text-uppercase" href="{% url 'resto:index' %}">Browse</a>
-                    <a class="nav-item nav-link text-uppercase" href="{% url 'about' %}">About</a>
-                    <a class="nav-item nav-link text-uppercase" href="{% url 'contact' %}">Contact</a>
+                    <a class="nav-item nav-link text-uppercase {{ home_page }}" href="{% url 'home' %}">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link text-uppercase {{ browse_page }}" href="{% url 'resto:index' %}">Browse</a>
+                    <a class="nav-item nav-link text-uppercase {{ about_page }}" href="{% url 'about' %}">About</a>
+                    <a class="nav-item nav-link text-uppercase {{ contact_page }}" href="{% url 'contact' %}">Contact</a>
                     {% if user.is_authenticated %}
-                        <a href="{% url 'bauth:profile' %}"><p class="nav-item nav-link text-uppercase">Welcome {{ user.username }}!</p></a>
+                        <a href="{% url 'bauth:profile' %}"><p class="nav-item nav-link text-uppercase {{ profile_page }}">Welcome {{ user.username }}!</p></a>
                         <p class="nav-item nav-link text-uppercase"><a href="{% url 'bauth:logout' %}">Log out</a></p>
                     {% else %}
                         <a class="nav-item nav-link text-uppercase" href="{% url 'bauth:login' %}">Login<span class="sr-only">(current)</span></a>

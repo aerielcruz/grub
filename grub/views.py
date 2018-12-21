@@ -8,17 +8,20 @@ def home(request):
 	context = {
 		"title": "Welcome to home",
 		"restaurantlist": restaurants,
+		"home_page": "active"
 	}
 	return render(request, "index.html", context)
 
 def about(request):
 	context = {
 		"title": "About Page",
+		"about_page": "active"
 	}
 	return render(request, "pages/about.html", context)
 
 def contact(request):
 	context = {
 		"title": "Contact Page",
+		"contact_page": "active"
 	}
 	return render(request, "pages/contact.html", context)
