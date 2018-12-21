@@ -1,11 +1,44 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
 	<div class="container">
-		<h1>Contact Me!</h1>
-		<p><a href="{% url 'about' %}">About</a></p>
-		<p><a href="{% url 'home' %}"><&lt;Back to Home</a></p>
+		<header class="masthead about-img" style="background-image: url({% static 'images/group.jpg' %}); ">
+			<div class="site-heading" style="height: 400px;">
+				<h1 class="text-uppercase" style="color: #FFF; margin-top: -50px;">Contact Us</h1>
+				<span class="subheading" style="font-weight: 500;">For any questions and inquiries.</span>
+			</div>
+		</header>
+		<h3 style="margin-bottom: 20px;">Feel free to send us a message!</h3>
+		<div style="margin: 0 10px;">
+			<div class="row">
+				<div class="col-md-8">
+					<form method="POST">
+						<h4>Name</h4>
+						<input class="form-control" name="name" placeholder="Your name here" /><br />
+						<h4>Email</h4>
+						<input class="form-control" name="email" placeholder="Your email here" /><br />
+						<h4>Subject</h4>
+						<input class="form-control" name="phone" placeholder="The subject" /><br />
+						<h4>Message</h4>
+						<textarea class="form-control" name="text" placeholder="How can we help you?" style="height:150px;"></textarea><br />
+						<a class="main-btn primary-btn text-uppercase transition" style="float: right;" href="#" role="button">Submit</a>
+					</form>
+				</div>
+				<div class="col-md-4">
+					<b>Customer service:</b> 
+					<p>+ 01 234 567 87</p>
+					<p>E-mail:</p><a href="mailto:support@grub.com">support@grub.com</a>
+					<br /><br />
+					<b>Headquarter:</b>
+					<p>Grub Street, PH</p>
+					<p>+ 01 234 567 88</p>
+					<p>+ 01 234 567 89</p>
+					<a href="mailto:usa@mysite.com">usa@mysite.com</a>
+				</div>
+			</div>
+		</div>
 	</div>
 
 {% endblock %}
