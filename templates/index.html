@@ -66,19 +66,17 @@
 		<h5>Restaurants that were recently added</h5>
 		<div class="row primary-align d-flex justify-content-center" style="margin: 0 -5px;">
             {% for item in restaurantlist reversed %}
-			{% comment %} {% for item in restaurantlist|slice:":6" reversed %} {% endcomment %}
-				
-					<div class="col-md-6 col-lg-4 opaque-hover">
-						<a style="margin: 10px 5px;" href="{% url 'resto:read' item.name item.id %}">
-							<div class="card transition">
-								<img class="card-img-top" src="/media/{{ item.banner_image }}" alt="Card image cap">
-								<div class="card-body">
-									<p class="card-text" style="font-weight: 500; font-size: 18px; color: #000;">{{ item.name }}</p>
-									<p class="card-text" style="font-weight: 400; font-size: 12px; color: #7C7C7D;">{{ item.description }}</p>
-								</div>
+				<div class="col-md-6 col-lg-4 opaque-hover">
+					<a style="margin: 10px 5px;" href="{% url 'resto:read' item.name item.id %}">
+						<div class="card transition">
+							<img class="card-img-top" src="/media/{{ item.banner_image }}" alt="Card image cap">
+							<div class="card-body">
+								<p class="card-text" style="font-weight: 500; font-size: 18px; color: #000;">{{ item.name }}</p>
+								<p class="card-text" style="font-weight: 400; font-size: 12px; color: #7C7C7D;">{{ item.description }}</p>
 							</div>
-						</a>
-					</div>
+						</div>
+					</a>
+				</div>
             {% empty %}
             <div class="bg-box" style="padding: 20px; width: 95%;">
                 <p>Sorry, no restaurants registered yet.</p>
