@@ -6,3 +6,6 @@ class RestaurantsConfig(AppConfig):
 
     # def ready(self):
     #     import restaurants.signals
+
+    # def ready(self):
+    #     import restaurants.gmaplink

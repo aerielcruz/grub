@@ -6,7 +6,6 @@ from .models import Category, Restaurant, Dish, Review
 from django.contrib.auth.decorators import login_required
 
 
-
 def index(request):
     # Get data from the database
     # Output to html file
