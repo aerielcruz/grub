@@ -1,9 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from restaurants.models import Restaurant
+
 def home(request):
+	restaurants = Restaurant.objects.all()
 	context = {
 		"title": "Welcome to home",
+		"restaurantlist": restaurants,
 	}
 	return render(request, "index.html", context)
 

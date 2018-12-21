@@ -10,17 +10,19 @@
             </div>
             <a style="float: right;" class="review-btn secondary-btn text-uppercase transition" href="{% url 'resto:create' 'restaurant' %}" role="button">Add a restaurant</a>
         </div>
-        <div class="row primary-align d-flex justify-content-center" style="margin: 0 -15px;">
-            {% for item in restaurantlist %}
-            <a class="opaque-hover" style="margin: 10px 5px;" href="{% url 'resto:read' item.name item.id %}">
-                <div class="card transition" style="width: 260px;">
-                    <img class="card-img-top" src="/media/{{ item.banner_image }}" alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-title" style="font-weight: 500; font-size: 18px; color: #000;">{{ item.name }}</p>
-                        {% comment %} <p class="card-text" style="font-weight: 300; font-size: 12px; color: #000;">{{ item.description }}</p> {% endcomment %}
-                    </div>
-                </div>
-            </a>
+        <div class="row primary-align d-flex justify-content-start" style="margin: 0 6px;">
+            {% for item in restaurantlist reversed %}
+			<div class="col-sm-6 col-md-4 col-lg-3 pull-left opaque-hover" style="padding: 0 5px !important;">
+				<a href="{% url 'resto:read' item.name item.id %}">
+					<div class="card transition" style="margin: 5px 0;">
+						<img class="card-img-top" src="/media/{{ item.banner_image }}" alt="Card image cap">
+						<div class="card-body">
+							<p class="card-text" style="font-weight: 500; font-size: 18px; color: #000;">{{ item.name }}</p>
+							<p class="card-text" style="font-weight: 400; font-size: 12px; color: #7C7C7D;">{{ item.description }}</p>
+						</div>
+					</div>
+				</a>
+			</div>
             {% empty %}
             <div class="bg-box" style="padding: 20px; width: 96%;">
                 <p>Sorry, no restaurants registered yet.</p>
