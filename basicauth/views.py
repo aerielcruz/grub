@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from django.contrib.auth.decorators import login_required
+from .forms import RegisterForm, UserUpdateForm, UserProfileUpdateForm
+from django.contrib import messages
 
 from django.contrib.auth.models import User
 
@@ -28,8 +30,29 @@ def registration(request):
 	}
 	return render(request, "registration/register.html", context)
 
+@login_required
 def profile(request):
-	return render(request, 'basicauth/profile.html')
+	if (request.method=="POST"):
+		u_form = UserUpdateForm(request.POST, instance=request.user)
+		p_form = UserProfileUpdateForm(request.POST, 
+										request.FILES, 
+										instance=request.user.userprofile)
+		if u_form.is_valid() and p_form.is_valid():
+			u_form.save()
+			p_form.save()
+			# return redirect("bauth:success")
+			messages.success(request, f'Your account has been updated!')
+			return redirect("bauth:profile")
+	else:	
+		u_form = UserUpdateForm(instance=request.user)
+		p_form = UserProfileUpdateForm(instance=request.user.userprofile)
+	
+	context = {
+		"u_form": u_form,
+		"p_form": p_form
+	}
+
+	return render(request, 'basicauth/profile.html', context)
 
 def success(request):
 	context = {

@@ -1,16 +1,31 @@
 {% extends "base.html" %}
-{% comment %} {% load static %} {% endcomment %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
 	<div class="container">
-        <div class="media">
+        {% if messages %}
+            <ul class="messages alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="media" style="margin: 20px 0;">
             <img class="rounded-circle account-img" src="{{ user.userprofile.image.url }}">
-            <div class="media-body">
+            <div class="media-body" style="margin: 0 10px;">
                 <h2 class="account-heading">{{ user.username }}</h2>
                 <p class="text-secondary">{{ user.email }}</p>
             </div>
         </div>
+        <form method="POST" enctype="multipart/form-data">
+            <h2>Profile Info</h2>
+            {% csrf_token %}
+            {{ u_form|crispy }}
+            {{ p_form|crispy }}
+            <p><input type="submit" class="btn btn-success text-uppercase" value="Update"></p>
+        </form>
     </div>
 
 {% endblock %}

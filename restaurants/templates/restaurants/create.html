@@ -3,12 +3,12 @@
 
 {% block content %}
 	<div class="container">
-		<div class="d-flex justify-content-center">
+		<div class="">
 			<form method = "POST" action='' enctype='multipart/form-data'>
 				{% csrf_token %}
 				{% comment %} {{ form|crispy }} {% endcomment %}
 				{% if form.banner_image %}
-				
+					<h2>Add A Restaurant</h2>
 					<div class="row">
 						<div class="col-6">
 							{{ form.name|as_crispy_field }}
@@ -33,7 +33,12 @@
 							{{ form.category|as_crispy_field }}
 						</div>
 					</div>
-					
+				{% elif form.dish %}
+					<h2>Add A Dish</h2>
+					{{ form|crispy }}
+				{% elif form.comment %}
+					<h2>Write A Review</h2>
+					{{ form|crispy }}
 				{% else %}
 					{{ form|crispy }}
 				{% endif %}
