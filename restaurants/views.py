@@ -40,7 +40,6 @@ def create(request, category):
                     )
                 messages.success(request, f'Dish has been added!')
                 return redirect("resto:index")
-                # return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
     elif (category == "restaurant"):
         form = RestaurantForm()
         if(request.method == "POST"):
