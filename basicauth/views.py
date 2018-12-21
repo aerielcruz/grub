@@ -25,7 +25,7 @@ def registration(request):
 			return redirect("bauth:login")
 
 	context = {
-		"title": "Register Here",
+		"title": "Register",
 		"message": "Create an account today!",
 		"form": form,
 	}
@@ -51,7 +51,8 @@ def profile(request):
 	context = {
 		"u_form": u_form,
 		"p_form": p_form,
-		"profile_page": "active"
+		"profile_page": "active",
+		"title": "Grub Profile",
 	}
 
 	return render(request, 'basicauth/profile.html', context)

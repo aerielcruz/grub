@@ -14,7 +14,7 @@ def index(request):
     # categories = Category.objects.all()
     restaurants = Restaurant.objects.all()
     context = {
-        "title": "Restaurant List",
+        "title": "Browse Restaurants",
         # "categorylist": categories,
         "restaurantlist": restaurants,
         "browse_page": "active"

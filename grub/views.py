@@ -6,7 +6,7 @@ from restaurants.models import Restaurant
 def home(request):
 	restaurants = Restaurant.objects.all()
 	context = {
-		"title": "Welcome to home",
+		"title": "Welcome to Grub",
 		"restaurantlist": restaurants,
 		"home_page": "active"
 	}
@@ -14,14 +14,14 @@ def home(request):
 
 def about(request):
 	context = {
-		"title": "About Page",
+		"title": "About",
 		"about_page": "active"
 	}
 	return render(request, "pages/about.html", context)
 
 def contact(request):
 	context = {
-		"title": "Contact Page",
+		"title": "Contact",
 		"contact_page": "active"
 	}
 	return render(request, "pages/contact.html", context)

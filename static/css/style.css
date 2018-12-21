@@ -53,6 +53,9 @@ div.meal-container {margin: 10px 0;}
 a img.meal-icon {width: 55px; height: auto; display: block; margin: 0 auto;}
 a p.meal-text {text-align: center; color: #7C7C7D; margin-top: -8px;}
 
+.grubber-img {width: 150px; height: 150px; margin-bottom: 10px; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; object-fit: cover;}
+
+
 /* about.html */
 .about-img {border-radius: 5px; margin: 0 10px;}
 

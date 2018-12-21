@@ -62,13 +62,6 @@
 			</div>
 		</div>
 
-		{% comment %} <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="/media/{{ obj.banner_image }}" alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div> {% endcomment %}
-
 		<h3>Newest Restaurants</h3>
 		<h5>Restaurants that were recently added</h5>
 		<div class="row primary-align d-flex justify-content-center" style="margin: 0 -5px;">
@@ -95,9 +88,30 @@
 		<h5>The top reviewers and bloggers who use Grub</h5>
 		<div class="container">
 			<div class="row">
-				<div class="bg-box col-md"></div>
-				<div class="bg-box col-md"></div>
-				<div class="bg-box col-md"></div>
+				<div class="bg-box col-md" style="padding: 20px;">
+					<img class="rounded-circle grubber-img" style="text-align:center" src="{% static 'images/brownman.jpg' %}">
+					<h4 class="d-flex justify-content-center">Bonnie Niles</h4>
+					<div class="d-flex justify-content-center" style="margin: 10px 0;">
+						<span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span>
+					</div>
+					<p class="d-flex justify-content-center" style="text-align: center;">I love Grub! I use it everyday to check the best restaurants around!</p>
+				</div>
+				<div class="bg-box col-md" style="padding: 20px;">
+					<img class="rounded-circle grubber-img" style="text-align:center" src="{% static 'images/gordon.jpg' %}">
+					<h4 class="d-flex justify-content-center">Gordon Ramsay</h4>
+					<div class="d-flex justify-content-center" style="margin: 10px 0;">
+						<span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span>
+					</div>
+					<p class="d-flex justify-content-center" style="text-align: center;">I love Grub! I use it everyday to check the best restaurants around!</p>
+				</div>
+				<div class="bg-box col-md" style="padding: 20px;">
+					<img class="rounded-circle grubber-img" style="text-align:center" src="{% static 'images/tom.jpg' %}">
+					<h4 class="d-flex justify-content-center">Tom Haverford</h4>
+					<div class="d-flex justify-content-center" style="margin: 10px 0;">
+						<span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span><span class="oi oi-star active-star"></span>
+					</div>
+					<p class="d-flex justify-content-center" style="text-align: center;">Grub is the best app ever! It let me expand my very own Tom's Bistro.</p>
+				</div>
 			</div>
 		</div>
 	</div>
