@@ -65,3 +65,6 @@ class Review(Model):
     created_at = DateTimeField(auto_now_add=True, editable=False)
     deleted_at = DateTimeField(null=True, blank=True, editable=False)
     updated_at = DateTimeField(auto_now=True, editable=False)
+
+    def __str__(self):
+        return '{} | {} | {}'.format(self.user, self.restaurant, self.comment)
