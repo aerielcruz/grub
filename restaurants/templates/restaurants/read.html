@@ -9,7 +9,8 @@
                     <img class="banner-img" src="/media/{{ obj.banner_image }}" alt="Card image cap">
                     <div style="padding: 20px;">
                         <h1>{{ title }}</h1>
-                        <p>{{ obj.address }}</p>
+                        <h5 style="margin: 0 0 10px 0;">{{ obj.description }}</h5>
+                        <p><span class="oi oi-location"></span> {{ obj.address }}</p>
                     </div>
                 </div>
             </div>
@@ -103,7 +104,10 @@
                         {% comment %} <button><a href="{% url 'resto:update' 'review' item.id %}">Update</a></button>
                         <button><a href="{% url 'resto:delete' 'review' item.id %}">Delete</a></button> {% endcomment %}
                     </div>
-                {% empty %}<p>Be the first to review {{ obj.name }}! :D</p>
+                {% empty %}
+                    <div class="bg-box" style="padding: 20px;">
+                        <p>Be the first to review {{ obj.name }}!</p>
+                    </div>
                 {% endfor %}
             </div>
         </div>

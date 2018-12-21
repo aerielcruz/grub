@@ -15,6 +15,7 @@ class RestaurantForm(forms.ModelForm):
         model = Restaurant
         fields = [
             "name",
+            "description",
             "address",
             "country",
             "phone",

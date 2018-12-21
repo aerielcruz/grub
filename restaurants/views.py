@@ -48,6 +48,7 @@ def create(request, category):
                 Restaurant.objects.create(
                     user = request.user,
                     name = form.cleaned_data["name"],
+                    description = form.cleaned_data["description"],
                     address = form.cleaned_data["address"],
                     country = form.cleaned_data["country"],
                     phone = form.cleaned_data["phone"],
@@ -96,6 +97,7 @@ def read(request, category, id):
         info = {
             "User": obj.user,
             "Name": obj.name,
+            "Description": obj.description,
             "Address": obj.address,
             "Country": obj.country,
             "Phone": obj.phone,

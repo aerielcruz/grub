@@ -2,19 +2,35 @@
 
 {% block content %}
 
-    <div class="container">
-        <h2>List of Restaurants</h2>
-        <ul>
+    <div class="container" style="margin-top: 13px;">
+        <div class="clearfix">
+            <div style="float: left;">
+                <h2 class="primary-align">Browse Restaurants</h2>
+                <h5 class="primary-margin">Here are restaurants that you may browse</h5>
+            </div>
+            <a style="float: right;" class="review-btn secondary-btn text-uppercase transition" href="{% url 'resto:create' 'restaurant' %}" role="button">Add a restaurant</a>
+        </div>
+        <div class="row primary-align d-flex justify-content-center" style="margin: 0 -15px;">
             {% for item in restaurantlist %}
-                <li>
-                    <a href="{% url 'resto:read' item.name item.id %}">{{ item.name }}</a>
-                    <button><a href="{% url 'resto:update' item.name item.id %}">Update</a></button>
-                    <button><a href="{% url 'resto:delete' item.name item.id %}">Delete</a></button>
-                </li>
-            {% empty %}<li>Sorry, no restaurants registered yet.</li>
+            <a class="opaque-hover" style="margin: 10px 5px;" href="{% url 'resto:read' item.name item.id %}">
+                <div class="card transition" style="width: 260px;">
+                    <img class="card-img-top" src="/media/{{ item.banner_image }}" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-title" style="font-weight: 500; font-size: 18px; color: #000;">{{ item.name }}</p>
+                        {% comment %} <p class="card-text" style="font-weight: 300; font-size: 12px; color: #000;">{{ item.description }}</p> {% endcomment %}
+                    </div>
+                </div>
+            </a>
+            {% empty %}
+            <div class="bg-box" style="padding: 20px; width: 96%;">
+                <p>Sorry, no restaurants registered yet.</p>
+            </div>
             {% endfor %}
-        </ul>
-        <button><a href="{% url 'resto:create' 'restaurant' %}">Add Restaurant</a></button>
+        </div>
     </div>
+
+    {% comment %} <a href="{% url 'resto:read' item.name item.id %}">{{ item.name }}</a>
+    <button><a href="{% url 'resto:update' item.name item.id %}">Update</a></button>
+    <button><a href="{% url 'resto:delete' item.name item.id %}">Delete</a></button> {% endcomment %}
 
 {% endblock %}

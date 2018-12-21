@@ -7,6 +7,9 @@ a {text-decoration: none !important; color: #EC5F2A;}
 a:hover {color: #D7592D;}
 ul {list-style-type: none;}
 
+.primary-align {margin: 0 10px;}
+.primary-margin {margin-bottom: 20px;}
+
 .main-btn {text-decoration: none !important; text-align: center; margin: auto; padding: 10px 20px;}
 .review-btn {text-decoration: none !important; text-align: center; margin: auto; padding: 8px 12px; margin-right: 10px;}
 .primary-btn {color: #fff; background-color: #EC5F2A; border-radius: 5px;  margin-top: -2px;}
@@ -20,7 +23,7 @@ nav .navbar-nav .nav-item {font-weight: bold;}
 
 footer {padding-top: 30px;}
 
-/* index.html */
+/* templates/index.html */
 header.masthead {margin-bottom: 50px; background: no-repeat center center; background-color: #868e96; background-attachment: scroll; position: relative; background-size: cover;}
 header.masthead .overlay {position: absolute; top: 0; left: 0; height: 100%; width: 100%; background-color: #212529; opacity: 0.5;}
 header.masthead .page-heading, header.masthead .post-heading, header.masthead .site-heading {padding: 200px 0 150px; color: white;}
@@ -52,6 +55,10 @@ a p.meal-text {text-align: center; color: #7C7C7D; margin-top: -8px;}
 
 /* profile.html */
 .account-img {display: inline-block; width: 150px; height: 150px; border-radius: 50%; object-fit: cover;}
+
+/* restaurants/index.html */
+.card-img-top {height: 150px; object-fit: cover;}
+.card-body {padding: 5px 10px;}
 
 /* read.html */
 .banner-container {background: #FFF; margin: 20px 10px; border: 1px solid #E5E5E5; border-radius: 5px;}

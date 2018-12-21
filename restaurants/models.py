@@ -19,6 +19,7 @@ class Category(Model):
 class Restaurant(Model):
     user = ForeignKey(User, on_delete=CASCADE)
     name = CharField(max_length=191)
+    description = CharField(max_length=191)
     address = CharField(max_length=191)
     country = CharField(max_length=191)
     phone = CharField(max_length=191)
