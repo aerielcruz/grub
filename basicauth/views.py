@@ -21,7 +21,8 @@ def registration(request):
 			password = form.cleaned_data["password"]
 			User.objects.create_user(username=username, email=email, password=password)
 
-			return redirect("bauth:success")
+			messages.success(request, f'Your account has been created! You may now login.')
+			return redirect("bauth:login")
 
 	context = {
 		"title": "Register Here",

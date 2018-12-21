@@ -1,9 +1,18 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 	<div class="container">
-		<h1>About Me!</h1>
-		<p><a href="{% url 'contact' %}">Contact</a></p>
-		<p><a href="{% url 'home' %}"><&lt;Back to Home</a></p>
+		<header class="masthead about-img" style="background-image: url({% static 'images/gathering.jpg' %}); ">
+			<div class="site-heading" style="height: 400px;">
+				<h1 class="text-uppercase" style="color: #FFF; margin-top: -50px;">Our Mission</h1>
+				<span class="subheading" style="font-weight: 500;">For you to know where to grub.</span>
+			</div>
+		</header>
+		<h3>About</h3>
+		<div style="margin: 0 10px;">
+			<p style="font-size: 20px;">Our website makes it easier for you grubbers to browse restaurants and food online from thousands of restaurants worldwide.</p>
+			<p style="font-size: 20px;">This is inspired by various food websites such as Zomato, Yelp, etc. and is created with familiar user interface and experience for all users.</p>
+		</div>
 	</div>
 {% endblock %}

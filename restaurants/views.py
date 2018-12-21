@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-
+from django.contrib import messages
 from .forms import CategoryForm, RestaurantForm, DishForm, ReviewForm
 from .models import Category, Restaurant, Dish, Review
-
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
 
@@ -28,7 +28,6 @@ def create(request, category):
         form = DishForm()
         if(request.method == "POST"):
             form = DishForm(request.POST)
-
             if form.is_valid():
                 Dish.objects.create(
                     user = request.user,
@@ -38,7 +37,9 @@ def create(request, category):
                     restaurant = form.cleaned_data["restaurant"],
                     category = form.cleaned_data["category"]
                     )
-                return redirect("resto:success")
+                messages.success(request, f'Dish has been added!')
+                return redirect("resto:index")
+                # return HttpResponseRedirect(request.META.get('HTTP_REFERER','/'))
     elif (category == "restaurant"):
         form = RestaurantForm()
         if(request.method == "POST"):
@@ -56,12 +57,13 @@ def create(request, category):
                     opening_hours = form.cleaned_data["opening_hours"],
                     banner_image = form.cleaned_data["banner_image"]
                     )
-                return redirect("resto:success")
+                messages.success(request, f'Restaurant has been added!')
+                return redirect("resto:index")
     elif (category == "review"):
         form = ReviewForm()
         if(request.method == "POST"):
             form = ReviewForm(request.POST)
-
+            
             if form.is_valid():
                 Review.objects.create(
                     user = request.user,
@@ -69,7 +71,8 @@ def create(request, category):
                     comment = form.cleaned_data["comment"],
                     restaurant = form.cleaned_data["restaurant"]
                     )
-                return redirect("resto:success")
+                messages.success(request, f'Your review has been added!')
+                return redirect("resto:index")
 
     context = {
 		"form": form,
@@ -122,6 +125,7 @@ def read(request, category, id):
         "reviewlist": reviews
 	}
     return render(request, "restaurants/read.html", context)
+
 
 @login_required
 def update(request, category, id):

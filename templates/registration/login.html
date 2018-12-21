@@ -4,6 +4,14 @@
 {% block content %}
 
 	<div class="container">
+		{% if messages %}
+            <ul class="messages alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 		<div class="d-flex justify-content-center">
 			<form method="POST">
 				<h2>Login</h2><br>

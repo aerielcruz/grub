@@ -53,6 +53,9 @@ div.meal-container {margin: 10px 0;}
 a img.meal-icon {width: 55px; height: auto; display: block; margin: 0 auto;}
 a p.meal-text {text-align: center; color: #7C7C7D; margin-top: -8px;}
 
+/* about.html */
+.about-img {border-radius: 5px; margin: 0 10px;}
+
 /* profile.html */
 .account-img {display: inline-block; width: 100px; height: 100px; border-radius: 50%; object-fit: cover;}
 

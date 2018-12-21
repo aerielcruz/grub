@@ -3,49 +3,48 @@
 
 {% block content %}
 	<div class="container">
-		<div class="">
-			<form method = "POST" action='' enctype='multipart/form-data'>
-				{% csrf_token %}
-				{% comment %} {{ form|crispy }} {% endcomment %}
-				{% if form.banner_image %}
-					<h2>Add A Restaurant</h2>
-					<div class="row">
-						<div class="col-6">
-							{{ form.name|as_crispy_field }}
-						</div>
-						<div class="col-6">
-							<p style="margin: 7px 0 0 0;">Banner image</p>
-							<div class="custom-file" style="margin: 7px 0 0 0;">
-								<input type="file" name="banner_image" accept="image/*" class="clearablefileinput" id="id_banner_image">
-							</div>
+		<form method = "POST" action='' enctype='multipart/form-data'>
+			{% csrf_token %}
+			{% comment %} {{ form|crispy }} {% endcomment %}
+			{% if form.banner_image %}
+				<h2>Add A Restaurant</h2>
+				{{ form|crispy }}
+				{% comment %} <div class="row">
+					<div class="col-6">
+						{{ form.name|as_crispy_field }}
+					</div>
+					<div class="col-6">
+						<p style="margin: 7px 0 0 0;">Banner image</p>
+						<div class="custom-file" style="margin: 7px 0 0 0;">
+							<input type="file" name="banner_image" accept="image/*" class="clearablefileinput" id="id_banner_image">
 						</div>
 					</div>
-					{{ form.description|as_crispy_field }}
-					{{ form.address|as_crispy_field }}
-					<div class="row">
-						<div class="col-2">
-							{{ form.country|as_crispy_field }}
-						</div>
-						<div class="col-5">
-							{{ form.phone|as_crispy_field }}
-						</div>
-						<div class="col-5">
-							{{ form.category|as_crispy_field }}
-						</div>
+				</div>
+				{{ form.description|as_crispy_field }}
+				{{ form.address|as_crispy_field }}
+				<div class="row">
+					<div class="col-2">
+						{{ form.country|as_crispy_field }}
 					</div>
-				{% elif form.dish %}
-					<h2>Add A Dish</h2>
-					{{ form|crispy }}
-				{% elif form.comment %}
-					<h2>Write A Review</h2>
-					{{ form|crispy }}
-				{% else %}
-					{{ form|crispy }}
-				{% endif %}
-				<p>
-					<input type="submit" name="submit" class="btn btn-success text-uppercase" value="submit"/>
-				</p>
-			</form>
-		</div>
+					<div class="col-5">
+						{{ form.phone|as_crispy_field }}
+					</div>
+					<div class="col-5">
+						{{ form.category|as_crispy_field }}
+					</div>
+				</div> {% endcomment %}
+			{% elif form.dish %}
+				<h2>Add A Dish</h2>
+				{{ form|crispy }}
+			{% elif form.comment %}
+				<h2>Write A Review</h2>
+				{{ form|crispy }}
+			{% else %}
+				{{ form|crispy }}
+			{% endif %}
+			<p>
+				<input type="submit" name="submit" class="btn btn-success text-uppercase" value="submit"/>
+			</p>
+		</form>
 	</div>
 {% endblock %}
