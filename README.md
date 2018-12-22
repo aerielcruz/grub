@@ -44,3 +44,17 @@ $ pip install -r requirements.txt
 ```
 $ python manage.py runserver
 ```
+
+## Admin Credentials
+**User:** grub
+
+**Pass:** grubmaster
+
+## Screenshots
+Home Page            |  Browse Restaurants Page
+:-------------------------:|:-------------------------:
+<img width="300" alt="screen shot 2018-12-22 at 11 43 16 pm" src="https://user-images.githubusercontent.com/31103697/50376158-52e82880-0644-11e9-9418-1d29b6bb27fb.png"> |  <img width="300" alt="screen shot 2018-12-22 at 11 47 47 pm" src="https://user-images.githubusercontent.com/31103697/50376166-832fc700-0644-11e9-846e-aa6e7f477927.png">
+
+## Purpose
+This was made for my finals project in my Python class. I do not own any of the images and/or data as they were only used as an example for this project.
+
