@@ -46,19 +46,21 @@
                 {% comment %} This is is suppose to show the categories and under are the dishes {% endcomment %}
                 {% for item in dishlist %}
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm">
                             <div class="bg-box">
                                 <div class="clearfix">
                                     <div class="clearfix" style="float: left;">
                                         <div style="float: left;">
-                                            <p class="font-weight-bold">{{ item.dish }}</p>
+                                            <div class="clearfix">
+                                                <p class="font-weight-bold" style="font-size: 20px; float: left;">{{ item.dish }}</p>
+                                                <p class="font-weight-bold" style="float: left; margin-left: 15px;">₱{{ item.price }}</p>                              
+                                            </div>
                                             <p>{{ item.description }}</p>
                                         </div>
-                                        <p class="font-weight-bold" style="float: right; margin-left: 35px;">{{ item.price }}</p>
                                     </div>
                                     <div class="clearfix" style="float: right;">
-                                        <a href="{% url 'resto:delete' 'restaurant' obj.id %}"><button style="color: #FFF; float: right;" class="btn bg-danger"><span class="oi oi-trash"></span></button></a>
-                                        <a style="float: right;" class="review-btn secondary-btn text-uppercase transition" href="{% url 'resto:update' 'restaurant' obj.id %}" role="button">Update</a>
+                                        <a href="{% url 'resto:delete' 'dish' item.id %}"><button style="color: #FFF; float: right;" class="btn bg-danger"><span class="oi oi-trash"></span></button></a>
+                                        <a style="float: right;" class="review-btn secondary-btn text-uppercase transition" href="{% url 'resto:update' 'dish' item.id %}" role="button">Update</a>
                                     </div>
                                 </div>
                             </div>
