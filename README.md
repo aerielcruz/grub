@@ -8,13 +8,13 @@
 $ mkdir ~/.virtualenvs
 ```
 
-1. Create a new virtual environment
+2. Create a new virtual environment
 
 ```
 $ python3 -m venv ~/.virtualenvs/grub
 ```
 
-1. Activate virtual environment
+3. Activate virtual environment
 
 ```
 $ source ~/.virtualenvs/grub/bin/activate
@@ -22,21 +22,25 @@ $ source ~/.virtualenvs/grub/bin/activate
 
 ### Test Django Project
 
-1. Clone the repository
+4. Clone the repository
 
 ```
 $ git clone https://github.com/aerielcruz/grub.git
 ```
 
-1. Change to the project's directory
+5. Change to the project's directory
 
-1. Install the package requirements
+```
+$ cd grub/
+```
+
+6. Install the package requirements
 
 ```
 $ pip install -r requirements.txt
 ```
 
-1. Run the server (Open the browser: http://127.0.0.1:8000/)
+7. Run the server (Open the browser: http://127.0.0.1:8000/)
 
 ```
 $ python manage.py runserver
