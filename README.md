@@ -1,6 +1,5 @@
-# Grub 
-## Project Setup
-### Virtual Environment Setup
+# Grub (Project Setup)
+## Virtual Environment Setup
     
 **1. Set `.virtualenvs/` in your home directory, if you don't have one yet.**
 
@@ -20,7 +19,7 @@ $ python3 -m venv ~/.virtualenvs/grub
 $ source ~/.virtualenvs/grub/bin/activate
 ```
 
-### Test Django Project
+## Test Django Project
 
 **4. Clone the repository**
 
