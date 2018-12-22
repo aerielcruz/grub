@@ -51,7 +51,7 @@ class Dish(Model):
         verbose_name_plural = "Dishes"
 
     def __str__(self):
-        return self.dish
+        return '{} | {} | {}'.format(self.restaurant, self.category, self.dish)
 
 
 class Review(Model):
