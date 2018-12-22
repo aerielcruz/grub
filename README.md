@@ -51,9 +51,9 @@ $ python manage.py runserver
 **Pass:** grubmaster
 
 ## Screenshots
-Home Page            |  Browse Restaurants Page
-:-------------------------:|:-------------------------:
-<img width="300" alt="screen shot 2018-12-22 at 11 43 16 pm" src="https://user-images.githubusercontent.com/31103697/50376158-52e82880-0644-11e9-9418-1d29b6bb27fb.png"> |  <img width="300" alt="screen shot 2018-12-22 at 11 47 47 pm" src="https://user-images.githubusercontent.com/31103697/50376166-832fc700-0644-11e9-846e-aa6e7f477927.png">
+Home Page            |  Browse Restaurants Page  |  User Profile Page
+:-------------------------:|:-------------------------:|:-------------------------:
+<img width="300" alt="screen shot 2018-12-22 at 11 43 16 pm" src="https://user-images.githubusercontent.com/31103697/50376158-52e82880-0644-11e9-9418-1d29b6bb27fb.png"> | <img width="300" alt="screen shot 2018-12-22 at 11 47 47 pm" src="https://user-images.githubusercontent.com/31103697/50376166-832fc700-0644-11e9-846e-aa6e7f477927.png"> | <img width="300" alt="screen shot 2018-12-23 at 12 09 18 am" src="https://user-images.githubusercontent.com/31103697/50376384-0f42ee00-0647-11e9-8245-783de1672a7a.png">
 
 ## Purpose
 This was made for my finals project in my Python class. I do not own any of the images and/or data as they were only used as an example for this project.
